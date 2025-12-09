@@ -1,0 +1,47 @@
+{
+  "name": "create-leeais-app",
+  "version": "1.0.0",
+  "description": "A CLI tool to create projects with ease.",
+  "type": "module",
+  "main": "bin/cli.js",
+  "bin": {
+    "create-leeais-app": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "scripts": {
+    "test": "node bin/cli.js test-project",
+    "prepublishOnly": "echo 'Ready to publish'"
+  },
+  "keywords": [
+    "create-leeais-app",
+    "cli",
+    "react",
+    "starter",
+    "scaffold",
+    "generator",
+    "vite"
+  ],
+  "author": "longdech",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leeais/leeais-builder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leeais/leeais-builder/issues"
+  },
+  "homepage": "https://github.com/leeais/leeais-builder#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^9.2.12",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

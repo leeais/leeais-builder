@@ -1,0 +1,21 @@
+# Ignore development files and directories
+.git
+.github
+.vscode
+.idea
+.gitignore
+.npmignore
+.eslintrc.js
+.prettierrc
+tsconfig.json
+jest.config.js
+__tests__
+tests
+examples
+docs
+
+# Ignore local config
+.env
+*.log
+node_modules
+coverage

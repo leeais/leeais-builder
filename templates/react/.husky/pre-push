@@ -1,0 +1,9 @@
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+validate_build_branches=("testing" "uat" "main")
+
+if [[ " ${validate_build_branches[@]} " =~ " ${current_branch} " ]]; then
+  echo "Running build on branch: $current_branch"
+else
+  echo "Skipping build on branch: $current_branch"
+fi
