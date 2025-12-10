@@ -82,22 +82,22 @@ function validateProjectName(input: string): boolean | string {
 /**
  * Rename template files that start with underscore to dot files
  */
-// function renameTemplateFiles(projectPath: string): void {
-//   const filesToRename = [
-//     { from: '_gitignore', to: '.gitignore' },
-//     { from: '_prettierrc', to: '.prettierrc' },
-//     { from: '_prettierignore', to: '.prettierignore' },
-//     { from: '_eslintrc.json', to: '.eslintrc.json' },
-//     { from: '_vscode', to: '.vscode' },
-//   ];
+function renameTemplateFiles(projectPath: string): void {
+  const filesToRename = [
+    { from: '_gitignore', to: '.gitignore' },
+    // { from: '_prettierrc', to: '.prettierrc' },
+    // { from: '_prettierignore', to: '.prettierignore' },
+    // { from: '_eslintrc.json', to: '.eslintrc.json' },
+    // { from: '_vscode', to: '.vscode' },
+  ];
 
-//   filesToRename.forEach(({ from, to }) => {
-//     const fromPath = path.join(projectPath, from);
-//     if (fs.existsSync(fromPath)) {
-//       fs.renameSync(fromPath, path.join(projectPath, to));
-//     }
-//   });
-// }
+  filesToRename.forEach(({ from, to }) => {
+    const fromPath = path.join(projectPath, from);
+    if (fs.existsSync(fromPath)) {
+      fs.renameSync(fromPath, path.join(projectPath, to));
+    }
+  });
+}
 
 /**
  * Update package.json with project name
@@ -299,7 +299,7 @@ program
       fs.copySync(templatePath, projectPath);
 
       // Rename template files
-      // renameTemplateFiles(projectPath);
+      renameTemplateFiles(projectPath);
 
       // Update package.json
       updatePackageJson(projectPath, projectName);
