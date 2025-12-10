@@ -4,11 +4,18 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
+// Config for antdesign
+// import { StyleProvider } from "@ant-design/cssinjs";
+// import { ConfigProvider } from "antd";
+// import viVN from "antd/locale/vi_VN";
+
 const App = () => {
   const [count, setCount] = useState(0);
 
   return (
     <>
+      {/* <StyleProvider layer>
+        <ConfigProvider locale={viVN}> */}
       <div>
         <a href="https://vite.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -29,6 +36,9 @@ const App = () => {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      {/* </ConfigProvider>
+    </StyleProvider> */}
     </>
   );
 };
