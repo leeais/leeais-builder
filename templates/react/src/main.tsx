@@ -13,8 +13,8 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* <StyleProvider layer>
         <ConfigProvider locale={viVN}> */}
-            <App />
-        {/* </ConfigProvider>
+    <App />
+    {/* </ConfigProvider>
     </StyleProvider> */}
   </StrictMode>,
 );

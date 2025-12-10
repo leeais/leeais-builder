@@ -1,0 +1,52 @@
+# Dependencies
+node_modules
+npm-shrinkwrap.json
+package-lock.json
+
+# Build output
+dist
+build
+lib
+*.tgz
+
+# Templates
+templates/**/*
+
+# Cache
+.cache
+.eslintcache
+.stylelintcache
+
+# Coverage
+coverage
+*.lcov
+.nyc_output
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# Editor
+.vscode
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Generated files
+*.generated.*
+*.min.js
+*.min.css
+
+# Documentation
+CHANGELOG.md
+LICENSE
+README.md

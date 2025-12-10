@@ -6,7 +6,8 @@ A powerful CLI tool to scaffold modern web projects with ease.
 
 - **Interactive Setup**: User-friendly prompts for project configuration.
 - **Multiple Templates**:
-  - ⚛️ **React**: Vite + React setup (Available).
+  - ⚛️ **React**: Vite + React + TypeScript + TailwindCSS + (Husky, ESLint, Prettier, Commitlint, Lint-staged) setup (Available).
+  - ⚛️ **React Native**: Coming soon.
   - ⚡ **Next.js**: Coming soon.
   - 🦁 **NestJS**: Coming soon.
   - 🟢 **Node.js**: Coming soon.
@@ -17,13 +18,13 @@ A powerful CLI tool to scaffold modern web projects with ease.
 You can run the CLI directly using `npx`:
 
 ```bash
-npx create-leeais-app@latest
+npx create-leeais-builder@latest
 ```
 
 Or install it globally:
 
 ```bash
-npm install -g create-leeais-app
+npm install -g create-leeais-builder
 ```
 
 ## Usage
@@ -33,7 +34,7 @@ npm install -g create-leeais-app
 Simply run the command without arguments to start the interactive wizard:
 
 ```bash
-create-leeais-app
+create-leeais-builder
 ```
 
 You will be prompted for:
@@ -48,12 +49,12 @@ You will be prompted for:
 You can also bypass prompts by providing arguments:
 
 ```bash
-create-leeais-app <project-name> [options]
+create-leeais-builder <project-name> [options]
 ```
 
 #### Options
 
-- `-t, --template <template>`: Specify template (`react`, `next`, `nest`, `node`).
+- `-t, --template <template>`: Specify template (`react`, `react-native`, `next`, `nest`, `node`).
 - `--install`: Automatically install dependencies.
 - `--no-install`: Skip dependency installation.
 - `--pm <manager>`: Specify package manager (`npm`, `yarn`, `pnpm`, `bun`).
@@ -65,7 +66,7 @@ create-leeais-app <project-name> [options]
 Create a React app named `my-dream-app` using `pnpm` and install dependencies:
 
 ```bash
-create-leeais-app my-dream-app --template react --pm pnpm --install
+create-leeais-builder my-dream-app --template react --pm pnpm --install
 ```
 
 ## Project Structure

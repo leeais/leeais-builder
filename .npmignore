@@ -1,21 +1,75 @@
-# Ignore development files and directories
-.git
-.github
-.vscode
-.idea
-.gitignore
-.npmignore
-.eslintrc.js
-.prettierrc
-tsconfig.json
-jest.config.js
-__tests__
-tests
-examples
-docs
+# Source files - chỉ publish dist/build
+src/
+*.ts
+*.tsx
+!*.d.ts
 
-# Ignore local config
-.env
+# Tests
+test/
+tests/
+__tests__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Development files
+.vscode/
+.idea/
+.editorconfig
+.eslintrc*
+.prettierrc*
+.prettierignore
+tsconfig.json
+tsconfig.*.json
+nodemon.json
+
+# Documentation source
+docs/
+*.md
+!README.md
+!LICENSE
+
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Logs
+logs/
 *.log
-node_modules
-coverage
+npm-debug.log*
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Cache
+.cache/
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Build artifacts không cần thiết
+*.map
+*.tsbuildinfo
+
+# Dependencies
+node_modules/
+package-lock.json
