@@ -1,0 +1,5 @@
+{
+  "welcome": "Welcome to the app!",
+  "greeting": "Hello, {{name}}!",
+  "button_text": "Change Language"
+}

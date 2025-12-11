@@ -1,0 +1,19 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@i18n/*": ["src/i18n/*"],
+      "@features/*": ["src/features/*"],
+      "@shared/*": ["src/shared/*"],
+      "@store/*": ["src/store/*"],
+      "@navigation/*": ["src/navigation/*"],
+      "@screens/*": ["src/screens/*"],
+      "@types/*": ["src/types/*"],
+      "@/*": ["src/*"],
+      "tests": ["tests/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "nativewind-env.d.ts"],
+  "exclude": ["**/node_modules", "**/Pods"]
+}

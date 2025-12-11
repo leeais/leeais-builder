@@ -220,11 +220,11 @@ program
           choices: [
             { name: 'React (Vite + TypeScript)', value: TEMPLATES.REACT },
             {
-              name: 'React Native (Coming Soon)',
+              name: 'React Native',
               value: TEMPLATES.REACT_NATIVE,
             },
             { name: 'Next.js (Coming Soon)', value: TEMPLATES.NEXT },
-            { name: 'NestJS (Coming Soon)', value: TEMPLATES.NEST },
+            { name: 'NestJS', value: TEMPLATES.NEST },
             { name: 'Node.js (Coming Soon)', value: TEMPLATES.NODE },
           ],
         });
@@ -270,7 +270,11 @@ program
       }
 
       // Check for unimplemented templates
-      if (template !== TEMPLATES.REACT) {
+      if (
+        template !== TEMPLATES.REACT &&
+        template !== TEMPLATES.REACT_NATIVE &&
+        template !== TEMPLATES.NEST
+      ) {
         console.log(
           chalk.yellow(
             `\n⚠️  The "${template}" template is coming soon! Stay tuned.\n`

@@ -1,0 +1,8 @@
+commit_regex='^(feat|fix|chore|docs|style|refactor|perf|test)(\(.+\))?: .{1,}$'
+
+if ! grep -qE "$commit_regex" "$1"; then
+  echo "[ERROR] Commit message invalid!"
+  echo "[VALID] feat(scope): sort desc"
+  echo "[EXAMPLE] feat(auth): add feature login"
+  exit 1
+fi
