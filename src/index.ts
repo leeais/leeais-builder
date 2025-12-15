@@ -195,14 +195,32 @@ program
       console.log(chalk.cyan.bold('\n🚀 Leeais Project Builder\n'));
 
       // 1. Collect User Inputs
-      let projectName = cliProjectName;
+      let targetDir: string | undefined;
+      let projectName: string | undefined;
+
+      // Handle argument if provided
+      if (cliProjectName) {
+        targetDir = path.resolve(process.cwd(), cliProjectName);
+        projectName = path.basename(targetDir);
+
+        const validation = validateProjectName(projectName);
+        if (validation !== true) {
+          console.error(
+            chalk.red(
+              `\n❌ Invalid project name "${projectName}": ${validation}\n`
+            )
+          );
+          process.exit(1);
+        }
+      }
+
       let template = options.template as Template | undefined;
       let packageManager = options.pm as PackageManager | undefined;
       let shouldInstall = options.install; // undefined if not specified
 
       const questions: any[] = [];
 
-      if (!projectName) {
+      if (!targetDir) {
         questions.push({
           type: 'input',
           name: 'projectName',
@@ -251,8 +269,17 @@ program
 
       const answers = (await inquirer.prompt(questions)) as PromptAnswers;
 
-      // Merge answers
-      projectName = projectName || answers.projectName!;
+      // Resolve final values
+      if (!targetDir) {
+        projectName = answers.projectName!;
+        targetDir = path.resolve(process.cwd(), projectName);
+      } else {
+        // projectName already set from cli argument
+      }
+
+      // Ensure projectName is defined (typescript check)
+      if (!projectName) throw new Error('Project name is undefined');
+
       template = template || answers.template!;
       packageManager = packageManager || answers.packageManager!;
       if (shouldInstall === undefined) {
@@ -260,11 +287,12 @@ program
       }
 
       // 2. Handle Logic based on Template
-      const projectPath = path.join(process.cwd(), projectName);
+      // projectPath is targetDir
+      const projectPath = targetDir;
 
       if (fs.existsSync(projectPath)) {
         console.log(
-          chalk.red(`\n❌ Directory "${projectName}" already exists!\n`)
+          chalk.red(`\n❌ Directory "${projectPath}" already exists!\n`)
         );
         process.exit(1);
       }
@@ -318,7 +346,13 @@ program
       }
 
       // 4. Success Message
-      printSuccessMessage(projectName, packageManager, shouldInstall, template);
+      // Calculate relative path for display
+      const relativePath = path.relative(process.cwd(), projectPath);
+      const cdPath = relativePath.includes(' ')
+        ? `"${relativePath}"`
+        : relativePath;
+
+      printSuccessMessage(cdPath, packageManager, shouldInstall, template);
     } catch (error) {
       console.error(
         chalk.red('\n❌ An error occurred:'),
